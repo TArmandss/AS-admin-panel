@@ -1,0 +1,67 @@
+.close-filter-btn {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  position: relative;
+  font-size: 2rem;
+}
+
+.pop-up-filter {
+  max-width: 300px;
+  height: auto;
+  padding: 1rem;
+  position: absolute;
+  background: var(--primary-bg-color);
+  right: 0;
+  top: 0;
+  border-radius: 16px;
+  transform-origin: top right;
+  transform: scale(0);
+  transition: transform 0.4s ease;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pop-up-filter.active {
+  transform: scale(1);
+}
+
+.apply-filters-btn {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  color: white !important;
+  padding: 1rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-self: last baseline;
+  align-self: last baseline;
+  left: 0;
+  background: var(--prussian-blue) !important;
+  cursor: pointer;
+}
+.css-1xgnz6y-MuiStack-root {
+  padding: unset !important;
+}
+.filter-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.filter-bottom button:last-child {
+  background: transparent !important;
+  color: var(--prussian-blue) !important;
+  border: 1px solid var(--prussian-blue);
+}

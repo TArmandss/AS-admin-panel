@@ -1,0 +1,7 @@
+.page-layout{
+  width: 100%;
+  height: 100svh;
+  display: grid;
+  grid-template-columns: .12fr 1fr;
+  gap: 0;
+}

@@ -1,0 +1,61 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+}
+body {
+  width: 100%;
+  height: 100%;
+  background: var(--primary-bg-color);
+  font-family: var(--font-family-primary);
+}
+
+:root {
+  --dark-blue: #0d243a;
+  --color-white: white;
+
+  --overlay-color: #17171756;
+  --overlay-color2: #a6a5a58c;
+  --color-green: #008000;
+  --dark-green: #016d16;
+  --color-green: #70e000;
+  --color-yellow: #ffc300;
+
+  --font-family-primary: "Anton", sans-serif;
+  --font-family-decor: "Playwrite CU", cursive;
+  --font-family-secondary: "Poppins", sans-serif;
+}
+
+[data-theme="light"] {
+  --primary-bg-color: #f6f5f2;
+  --black-color: #171717;
+  --text-color: black;
+  --border-color: rgb(223, 223, 223);
+  --prussian-blue: #003459;
+  --wrapper-bg-color: #00345910;
+  --hover-bg: #00345929;
+}
+[data-theme="dark"] {
+  --primary-bg-color: black;
+  --black-color: #171717;
+  --text-color: white;
+  --wrapper-bg-color: #131313;
+  --border-color: rgb(223, 223, 223);
+  --prussian-blue: #003459;
+  --hover-bg: #00345929;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+  width: 100%;
+  height: 100%;
+  z-index: 7;
+}

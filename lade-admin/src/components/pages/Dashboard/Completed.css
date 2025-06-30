@@ -1,0 +1,10 @@
+.comlpeted-wrapper {
+  background: #00345910;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.comlpeted-wrapper h1 {
+  font-size: 1.5rem;
+}

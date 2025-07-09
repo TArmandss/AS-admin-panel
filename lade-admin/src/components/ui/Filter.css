@@ -5,6 +5,7 @@
   align-self: flex-end;
   position: relative;
   font-size: 2rem;
+  color: var(--text-color);
 }
 
 .pop-up-filter {
@@ -52,6 +53,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+.filter-top p {
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  color: var(--text-color);
 }
 .filter-bottom {
   display: flex;

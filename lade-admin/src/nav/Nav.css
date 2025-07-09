@@ -17,7 +17,6 @@ nav ul li {
   position: relative;
   justify-content: flex-start;
   padding-left: 1rem;
-  padding-right: 0.5rem;
 }
 nav ul li a {
   display: flex;
@@ -29,6 +28,7 @@ nav ul li a {
   padding: 1rem 2rem;
   border-radius: 12px;
   position: relative;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
 }
 .logo {
   width: 100%;
@@ -38,13 +38,14 @@ nav ul li a {
   align-items: center;
 }
 .logo img {
-  width: 5rem;
+  width: 7rem;
 }
 
 nav ul li a.active {
   background: #003459;
   color: white;
   position: relative;
+  width: 100%;
 }
 nav ul li a:not(.active):hover {
   background: var(--hover-bg);
@@ -61,12 +62,18 @@ nav ul li.active-li::after {
   top: 0;
   border-radius: 4px;
 }
-.mode-toggle{
+.mode-toggle {
   position: absolute;
   bottom: 2rem;
   align-self: center;
+  left: 1rem;
 }
-.mode-toggle span{
-  font-size: .9rem;
+.mode-toggle span {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+
   color: var(--text-color);
+}
+
+.css-5yopc5-MuiSwitch-root {
+  overflow: unset !important;
 }

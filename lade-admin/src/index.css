@@ -37,15 +37,17 @@ body {
   --prussian-blue: #003459;
   --wrapper-bg-color: #00345910;
   --hover-bg: #00345929;
+  --border-color-2: var(--prussian-blue);
 }
 [data-theme="dark"] {
-  --primary-bg-color: black;
+  --primary-bg-color: #171717;
   --black-color: #171717;
   --text-color: white;
   --wrapper-bg-color: #131313;
-  --border-color: rgb(223, 223, 223);
+  --border-color: rgb(52, 52, 52);
   --prussian-blue: #003459;
   --hover-bg: #00345929;
+  --border-color-2: white;
 }
 
 .overlay {

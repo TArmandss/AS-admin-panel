@@ -20,21 +20,21 @@
   border: none;
   cursor: pointer;
   color: var(--text-color);
-  font-size: 0.9rem;
+  font-size: clamp(0.9rem, 1.1vw, 1.07rem);
 }
 .line {
   color: var(--text-color);
 }
 .all-orders-wrapper span button.active {
   color: var(--prussian-blue);
-  font-size: 0.9rem;
+  font-size: clamp(0.9rem, 1.1vw, 1.07rem);
   text-decoration: underline;
 }
 .action-button {
   position: relative;
 }
 .all-orders-wrapper h1 {
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
   color: var(--text-color);
 }
 .all-orders-wrapper ul {
@@ -50,7 +50,7 @@
   grid-template-columns: 1fr 1fr 1.5fr 0.5fr 0.5fr 0.5fr 0.3fr;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
+  font-size: clamp(0.9rem, 1.1vw, 1.2rem);
   font-weight: 500;
   color: white;
 }
@@ -59,8 +59,11 @@
   justify-content: first baseline;
 }
 
-
 .filter-option {
   position: absolute;
   right: 1rem;
+}
+.orders-box p {
+  font-size: clamp(0.9rem, 1.1vw, 1.2rem);
+  color: var(--text-color);
 }

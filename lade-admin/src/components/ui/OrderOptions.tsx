@@ -1,15 +1,17 @@
 import { MdOutlineDeleteSweep } from "react-icons/md";
 import { IoCheckmarkDone } from "react-icons/io5";
 import { BiDotsVerticalRounded } from "react-icons/bi";
-import { useState, useRef, useEffect } from "react"; 
+import { useState, useRef, useEffect } from "react";
 import type { Order } from "../pages/Dashboard/AllOrders";
-import './OrderOptions.css'
+import "./OrderOptions.css";
+import { axiosInstance } from "../lib/axios";
+import { mutate } from "swr";
 
 type orderProps = {
   item: Order;
   navigate: (url: string) => void;
   toggleOrderStatus: (id: string, completed: boolean) => void;
-}
+};
 
 function OrderOptions({ item, navigate, toggleOrderStatus }: orderProps) {
   const [activeModal, setActiveModal] = useState(false);
@@ -30,6 +32,18 @@ function OrderOptions({ item, navigate, toggleOrderStatus }: orderProps) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+const onDeleteOrder = async (id: string) => {
+  try {
+    await mutate("/all-orders", async (currentOrders: Order[] = []) => {
+      // Optimistically remove the order from UI
+      await axiosInstance.delete("/delete-order", { data: { id } });
+      return currentOrders.filter(order => order.id !== id);
+    }, false);
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   return (
     <div
@@ -58,10 +72,17 @@ function OrderOptions({ item, navigate, toggleOrderStatus }: orderProps) {
 
           {activeModal && (
             <div className="action-modal" ref={modalRef}>
-              <span>
+              <span
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onDeleteOrder(item.id);
+                  setActiveModal(false);
+                }}
+              >
                 <MdOutlineDeleteSweep />
                 Dzēst
               </span>
+
               {item.status === "Pabeigts" ? (
                 <span
                   onClick={(e) => {

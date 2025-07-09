@@ -43,7 +43,7 @@
   display: flex;
   justify-content: first baseline;
   color: var(--text-color);
-  font-size: 0.9rem;
+  font-size: clamp(0.9rem, 1.1vw, 1.2rem);
   overflow: hidden;
 }
 
@@ -53,8 +53,7 @@
   height: auto;
   background: var(--primary-bg-color);
   border: 1px solid rgba(128, 128, 128, 0.294);
-  width: 13rem;
-
+  width: auto;
   top: 2rem;
   left: -9rem;
   display: flex;
@@ -80,13 +79,16 @@ a.yellow {
 .action-button span {
   position: relative;
   display: flex;
-  padding: 0.7rem 0;
+  padding: 0.7rem 0.5rem;
+
   flex-direction: row;
   width: 100%;
   gap: 0.5rem;
   justify-content: first baseline;
   align-items: center;
   padding-left: 0.5rem;
+  font-size: clamp(0.9rem, 1.1vw, 1.2rem);
+
   color: var(--text-color);
 }
 .action-button span:hover {

@@ -3,7 +3,9 @@
   height: 100%;
   display: grid;
   grid-template-rows: 0.1fr 1fr;
-  padding: 0.5rem 0;
+  padding: 0 0;
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
   padding-right: 0.5rem;
 }
 .user {
@@ -22,13 +24,13 @@
   padding: 0 1rem;
 }
 .user img {
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   background: white;
 }
 .user .select {
-  font-size: 0.9rem;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
   font-weight: 500;
   background: var(--wrapper-bg-color);
   gap: 0.3rem;
@@ -42,7 +44,21 @@
 }
 .green-dot {
   background: var(--color-green);
-  width: 0.7rem;
-  height: 0.7rem;
+  width: 0.8rem;
+  height: 0.8rem;
   border-radius: 50%;
+}
+
+.form-control-option {
+  display: flex;
+  flex-direction: row;
+  gap: 0.4rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem !important;
+}
+
+.account-icon,
+.logout-icon {
+  font-size: 1.1rem !important;
 }

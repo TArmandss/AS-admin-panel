@@ -7,6 +7,7 @@ import OrderOptions from "../../ui/OrderOptions";
 import { toast } from "react-toastify";
 import { IoFilter } from "react-icons/io5";
 import Filter from "../../ui/Filter";
+import Loading from "../../ui/Loading";
 
 export type Order = {
   id: string;
@@ -20,7 +21,7 @@ export type Order = {
 function AllOrders() {
   const navigate = useNavigate();
   const [active, setActive] = useState(1);
-  const { orders: data = [] } = useOrders();
+  const { orders: data = [], isLoading } = useOrders();
   const [activeFilter, setActiveFilter] = useState(false);
 
   const [finishedOrder, setFinishedOrder] = useState<Order[]>([]);
@@ -65,7 +66,7 @@ function AllOrders() {
     }
   };
 
-  const isFilterApplied = Object.values(filtering).some((val)=> !!val)
+  const isFilterApplied = Object.values(filtering).some((val) => !!val);
 
   const filteredData = data.filter((item) => {
     return Object.entries(filtering).every(([key, value]) => {
@@ -84,7 +85,6 @@ function AllOrders() {
     : displayedOrders.finished
     ? finishedOrder
     : unfinishedOrder;
-    
 
   return (
     <div className="all-orders-wrapper">
@@ -150,6 +150,7 @@ function AllOrders() {
       </ul>
 
       <div className="orders-box">
+        {isLoading && <Loading />}
         {ordersToRender?.map((item) => {
           return (
             <OrderOptions
@@ -160,6 +161,7 @@ function AllOrders() {
             ></OrderOptions>
           );
         })}
+        {ordersToRender.length === 0 && (<p>Nav ierakstu</p>)}
       </div>
     </div>
   );

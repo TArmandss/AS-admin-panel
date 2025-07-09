@@ -7,6 +7,7 @@ import { CiBookmark } from "react-icons/ci";
 import { IoMdContact } from "react-icons/io";
 import { CiCircleInfo } from "react-icons/ci";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { IoIosArrowBack } from "react-icons/io";
 
 interface TShirtSize {
   size: string;
@@ -40,7 +41,10 @@ function OrderOverview() {
           <span>|</span>
           {order.userName}
         </h1>
-        <button onClick={() => navigate("/")}>Panelis</button>
+        <button onClick={() => navigate("/")}>
+          <IoIosArrowBack />
+          Panelis
+        </button>
       </div>
       <div className="overview-main">
         <div>
@@ -74,7 +78,7 @@ function OrderOverview() {
                   <strong>E-mails:</strong> {order.userEmail}
                 </p>
                 <p>
-                  <strong>Tel.</strong> {order.userPhone}
+                  <strong>Tel Nr:</strong> {order.userPhone}
                 </p>
               </span>
             </div>
@@ -89,13 +93,13 @@ function OrderOverview() {
                 {order.deliveryMethod !== "Veikals" && (
                   <p>
                     {" "}
-                    <strong>Pakomāts</strong>
+                    <strong>Pakomāts: </strong>
                     {order.pakomatsAddress}
                   </p>
                 )}
                 <p>
                   {" "}
-                  <strong>Reģistrēts pasūtījums</strong> {order.createdAt}
+                  <strong>Reģistrēts pasūtījums: </strong> {order.createdAt}
                 </p>
                 <p>
                   {" "}
@@ -148,6 +152,129 @@ function OrderOverview() {
                         : ""
                     }`
                 )}
+              </h1>
+            )}
+          </div>
+          <div>
+            {order.items[activeOrder].tShirtColor && (
+              <h1>
+                <span>Krāsa:</span>
+                {order.items[activeOrder].tShirtColor}
+              </h1>
+            )}
+            {order.items[activeOrder].frontTshirt && (
+              <h1>
+                <span>Priekšpuse:</span>
+                {order.items[activeOrder].frontTshirt["only-color"] ? (
+                  <>Tikai krāsa</>
+                ) : (
+                  <>
+                    {" "}
+                    <a
+                      target="_blank"
+                      href={order.items[activeOrder].frontTshirt["full-front"]}
+                    >
+                      {order.items[activeOrder].frontTshirt["full-front"]}
+                    </a>
+                  </>
+                )}
+              </h1>
+            )}
+            {order.items[activeOrder].frontTshirt && (
+              <h1>
+                <span>Aizmugure:</span>
+                {order.items[activeOrder].backTshirt["only-color"] ? (
+                  <>Tikai krāsa</>
+                ) : (
+                  <>
+                    {" "}
+                    <a
+                      target="_blank"
+                      href={order.items[activeOrder].backTshirt["full-front"]}
+                    >
+                      {order.items[activeOrder].backTshirt["full-front"]}
+                    </a>
+                  </>
+                )}
+              </h1>
+            )}
+            {order.items[activeOrder].stickerImage && (
+              <h1>
+                <span>Uzlīmes attēls:</span>
+
+                <a target="_blank" href={order.items[activeOrder].stickerImage}>
+                  {order.items[activeOrder].stickerImage}
+                </a>
+              </h1>
+            )}
+            {order.items[activeOrder].color && (
+              <h1>
+                <span>Krāsa:</span>
+
+                {order.items[activeOrder].color}
+              </h1>
+            )}
+            {order.items[activeOrder].gender && (
+              <h1>
+                <span>Dzimums:</span>
+
+                {order.items[activeOrder].gender}
+              </h1>
+            )}
+            {/* Business Cards */}
+            {order.items[activeOrder].businessCardFront && (
+              <h1>
+                <span>Vizītkartes priekša:</span>
+
+                <a
+                  target="_blank"
+                  href={order.items[activeOrder].businessCardFront}
+                >
+                  {order.items[activeOrder].businessCardFront}
+                </a>
+              </h1>
+            )}
+            {order.items[activeOrder].businessCardBack && (
+              <h1>
+                <span>Vizītkartes aizmugure:</span>
+
+                <a
+                  target="_blank"
+                  href={order.items[activeOrder].businessCardBack}
+                >
+                  {order.items[activeOrder].businessCardBack}
+                </a>
+              </h1>
+            )}
+            {/*Envelopes */}
+            {order.items[activeOrder].envelopeBackImage && (
+              <h1>
+                <span>Aploksnes attēls:</span>
+
+                <a
+                  target="_blank"
+                  href={order.items[activeOrder].envelopeBackImage}
+                >
+                  {order.items[activeOrder].envelopeBackImage}
+                </a>
+              </h1>
+            )}
+            {/*Magnets */}
+            {order.items[activeOrder].magnetImage && (
+              <h1>
+                <span>Magnēta attēls:</span>
+
+                <a target="_blank" href={order.items[activeOrder].magnetImage}>
+                  {order.items[activeOrder].magnetImage}
+                </a>
+              </h1>
+            )}
+            {/*Comments */}
+            {order.items[activeOrder].comment && (
+              <h1>
+                <span>Komentāri:</span>
+
+                {order.items[activeOrder].comment}
               </h1>
             )}
           </div>

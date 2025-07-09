@@ -3,11 +3,14 @@ import TextField from "@mui/material/TextField";
 
 interface inputProps {
   name: string;
-  onInputHandler: (e: React.ChangeEvent<HTMLInputElement>, field: string) => void;
-  filter?: string,
-  field?: string
+  onInputHandler: (
+    e: React.ChangeEvent<HTMLInputElement>,
+    field: string
+  ) => void;
+  filter?: string;
+  field?: string;
 }
-function CustomInput({ name, onInputHandler, filter,field}: inputProps) {
+function CustomInput({ name, onInputHandler, filter, field }: inputProps) {
   return (
     <Box
       component="form"
@@ -19,13 +22,14 @@ function CustomInput({ name, onInputHandler, filter,field}: inputProps) {
         id="outlined-basic"
         label={name}
         value={filter}
-        onChange={(e)=> onInputHandler(e,field)}
+        onChange={(e) => onInputHandler(e, field)}
         variant="outlined"
         fullWidth
-        size="small" 
+        size="small"
         sx={{
           "& .MuiInputBase-root": {
             color: "var(--text-color)",
+            border: "1px solid var(--border-color)",
           },
           "& .MuiInputBase-input": {
             color: "var(--text-color)",
